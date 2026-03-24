@@ -1,4 +1,6 @@
-*{margin: 0px;}
+*{margin: 0px; 
+ -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none; }
 body{
   background-color: #090012;
   margin: 0px;
