@@ -3,6 +3,15 @@ body{
   background-color: #090012;
   margin: 0px;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* For Firefox and IE/Edge */
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
   :root {
             --bg-color: #0f1014;
             --card-width: 80vw;
@@ -189,3 +198,10 @@ width: 100%;
   height: 50px;
 }
 .anime .item button{font-size: 14px;color: #f39c12;background-color: transparent;border: 1px solid #f39c12;border-radius: 10px;height: 20px;}
+.anime::-webkit-scrollbar {
+    display: none;
+}
+.anime {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
