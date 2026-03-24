@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/videoplayer.min.css"/>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,1,0&icon_names=home" />
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="styles/content.css"/>
+      <link rel="stylesheet" href="styles/footer.css"/>
+  <meta name="theme-color" content="#0f1014">
+<meta name="msapplication-navbutton-color" content="#0f1014">
+<meta name="apple-mobile-web-app-status-bar-style" content="#0f1014">
+ <title>MY HERO ACADEMIA</title>
+</head>
+<body>
+  <div class="video-wrapper" id="player-container">
+    <div class="nxt-loader"></div>
+    <video id="v" class="main-video active-video" playsinline crossorigin="anonymous"></video>
+    <video id="v-buffer" class="main-video" playsinline crossorigin="anonymous" style="opacity:0; position:absolute;"></video>
+    <div id="next-episode-overlay" class="next-overlay" style="display:none;">
+    <div class="next-content">
+        <p>Next Episode starting in...</p>
+        <h2 id="countdown-timer">5</h2>
+        <div class="next-btns">
+            <button id="cancel-next" class="cancel-btn">Cancel</button>
+            <button id="play-now" class="play-now-btn">Play Now</button>
+        </div>
+    </div>
+</div>
+
+    
+   <div id="gesture-layer" style="position:absolute; inset:0; z-index:10;"></div>
+  
+<div id="brightness-backdrop" style="position:absolute; top:0; left:0; width:100%; height:100%; background:black; opacity:0; pointer-events:none; z-index:5;"></div>
+
+<div id="brightness-overlay" class="side-indicator left">
+    <span class="material-icons">light_mode</span>
+    <div class="bar"><div id="brightness-fill" class="fill" style="height: 100%;"></div></div>
+</div>
+
+<div id="volume-overlay" class="side-indicator right">
+    <span class="material-icons">volume_up</span>
+    <div class="bar"><div id="volume-fill" class="fill" style="height: 100%;"></div></div>
+</div>
+
+  <div class="controls">
+    <div class="top">
+      <div class="t-1">
+        <button class="material-icons md-25" onclick='closePlayer()'>arrow_back</button>
+        <div class="ts">
+          <p id="vptitle">My Hero Acedemia</p>
+          <p id="vpsubtitle">S1 E1 - Origin</p>
+        </div>
+        <div class="spaceH"></div>
+       
+      <button class="material-icons md-25" id="ops">settings</button><!--
+<button class="material-icons md-25" id="nextEpBtn">home</button>-->
+      <button id="fullscreenBtn"class="material-icons md-25">fullscreen</button>
+                            <button class="material-icons md-25" id="pipBtn2">picture_in_picture_alt</button>    
+      </div>
+    
+    </div>
+    <div class="mid">
+      <div class="mid-1">
+         <button class="material-icons md-25" id="seekBack">arrow_back_ios_new</button>
+      </div>
+      <div class="mid-2">
+        <button id="playV" class="material-icons md-25">
+play_arrow</button>
+      <button id="pauseV" class="material-icons md-25">pause</button>
+        <!--<img src="assets/buffering0.png">-->
+      </div>
+      <div class="mid-3">
+         <button class="material-icons md-25" id="seekForward">arrow_forward_ios</button>
+        
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="b-1">
+        <p>00:00</p>                        
+      </div>
+<div class="b-2">
+    <div class="progress-area">
+        <div class="progress-bar">
+            <div class="buffered-bar"></div> <div class="current-progress"></div> <div class="progress-dot"></div> </div>
+        <input type="range" class="progress-input" min="0" max="100" value="0">
+    </div>
+</div>
+
+      <div class="b-3">
+        <button id="speedBtnBar" class="material-icons md-25">slow_motion_video</button><button id="nm" class="nv">Speed</button><button id="speedCT">1x</button>
+        <button class="material-icons" id="pipBtn">picture_in_picture_alt</button><button id="nm1" class="nv">Mini&nbsp;Player</button>
+         <div class="spaceH"></div>
+        <button class="material-icons md-25" id="nextEpBtn">skip_next</button><button id="nm3" class="nv">Next&nbsp;Episode</button>
+        <button class="material-icons md-25" id="rateBtn" style="display: none;">star</button>
+    <button id="nmRate" class="nv" style="display: none;">Rate&nbsp;Show</button>
+         <div class="m23"></div>
+      </div>
+    </div>
+
+</div>
+    <div id="rating-overlay" class="settings-backdrop" style="display: none;">
+    <div class="settings-sheet rating-card">
+        <div class="settings-header">
+            <h3>Rate this Season</h3>
+            <button class="material-icons" onclick="closeRating()">close</button>
+        </div>
+        <div class="star-container">
+            <span class="material-icons star" data-value="1">star_outline</span>
+            <span class="material-icons star" data-value="2">star_outline</span>
+            <span class="material-icons star" data-value="3">star_outline</span>
+            <span class="material-icons star" data-value="4">star_outline</span>
+            <span class="material-icons star" data-value="5">star_outline</span>
+        </div>
+        <p id="rating-text">Tap a star to rate</p>
+        <button id="submit-rating" class="play-now-btn" style="width:100%; margin-top:15px;">Submit Rating</button>
+    </div>
+</div>
+
+<div id="settings-overlay" class="settings-backdrop">
+    <div class="settings-sheet">
+        <div class="settings-header">
+            <h3>Settings</h3>
+            <button id="report" class="report-btn">Report an Issue</button>
+          <button id="close-settings" class="material-icons md-25" onclick="closeS()">close</button>
+        </div>
+        
+        <div class="settings-tabs">
+            <div class="tab-item active" data-target="quality">Quality</div>
+            <div class="tab-item" data-target="audio">Audio Language</div>
+            <div class="tab-item" data-target="subtitles">Subtitles</div>
+            <div class="tab-item" data-target="speed">Speed</div>
+        </div>
+
+        <div class="tab-panes">
+<div id="quality" class="pane active">
+    <div class="option-item selected" data-quality="Auto" data-url="video_auto.mp4"><span class="material-icons check">check</span>Auto</div>
+    <div class="option-item" data-quality="best" data-url="video_720.mp4">Up to 720</div>
+    <div class="option-item" data-quality="worst" data-url="video_360.mp4">Data Saver</div>
+</div>
+      
+          <div id="audio" class="pane">
+        <div class="option-item selected" data-lang="Hindi"><span class="material-icons check">check</span>Hindi</div>
+          </div>
+    
+
+     <div id="subtitles" class="pane">
+                <div class="option-item" data-subtitle="off">Off</div>
+                <div class="option-item selected" data-subtitle="English"><span class="material-icons check">check</span>English</div>
+           
+            </div>
+
+            <div id="speed" class="pane">
+                <div class="option-item" data-speed="0.5">0.5x</div>
+                <div class="option-item selected" data-speed="1"><span class="material-icons check">check</span>Normal</div>
+                <div class="option-item" data-speed="1.5">1.5x</div>
+                <div class="option-item" data-speed="2">2x</div>
+            </div>
+         
+        </div>
+            </div>
+    </div>
+</div>
+
+  </div>
+  <div id="seek-left" class="seek-feedback"><span class="material-icons">replay_10</span></div>
+<div id="seek-right" class="seek-feedback"><span class="material-icons">forward_10</span></div>
+
+</div>
+<div id="videoWBG">
+  <p id="TvideoWBG"></p>
+  <p id="SvideoWBG"></p>
+  <p id="IvideoWBG"></p>
+</div>
+  
+  <div id="BG">
+    <!--<button class="material-icons md-25" id="backRR">close</button>-->
+  <img id="poster0" src="assets/bgBlack.jpg">
+  <div class="ShowInfo">
+    <p id='title'></p>
+    <div class="info0">
+      <p id="info0"></p>
+    </div>
+    <button id="classplay">Watch First Episode S1 E1</button><br>
+    <button id="genre"></button>
+    <p id="info99"></p>
+  </div>
+  </div>
+<p id="abcT">Episodes</p>
+  <div class="season" id="seasonButtonsContainer">
+  </div>
+  <div class="a"></div>
+  <div class="s1">
+    <div class="ep">
+      <div class="Eposter">
+        <img src="assets/bgBlack.jpg">
+      </div>
+      <div class="Einfo">
+            <h3 class="episode-title"></h3>
+    <p class="episode-meta"></p>
+<p class="episode-D">
+    </div>          
+</div>
+    </div>
+    
+  <div class="MLT">
+    <p>More Like This</p>
+    <div class="List">
+      <!-- <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BM2M4YzdkMTEtMjUyYy00ZWY0LWI5ODQtNGRkZWQ1MzU5MWM2XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg">
+        <p></p>
+      </div>-->
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BZTNjOWI0ZTAtOGY1OS00ZGU0LWEyOWYtMjhkYjdlYmVjMDk2XkEyXkFqcGc@._V1_QL75_UY562_CR1,0,380,562_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BM2VmNTc3OWQtOTVmMy00MGZlLTk3N2QtM2YwZDE5MWVjZmM5XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BYWQwNjk3MDItNDAxMS00YTQ2LWEyNDctMGYyZTE5OGQxNGQ1XkEyXkFqcGc@._V1_FMjpg_UY3000_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BNTk3MDA1ZjAtNTRhYS00YzNiLTgwOGEtYWRmYTQ3NjA0NTAwXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BYWFhOWMxNTYtZThiMi00ZmQ5LTlmODktN2QwNzUyZjMyZGQzXkEyXkFqcGc@._V1_FMjpg_UY2048_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BYzZkYjM1MWMtNTY3Mi00MTMzLTlhNmQtN2ExZjFkYzdjZmFjXkEyXkFqcGc@._V1_.jpg">
+        <p></p>
+      </div>
+           <div class="item">
+        <img src="https://m.media-amazon.com/images/M/MV5BMWU1OGEwNmQtNGM3MS00YTYyLThmYmMtN2FjYzQzNzNmNTE0XkEyXkFqcGc@._V1_.jpg">
+        <p></p>
+      </div>
+      <div class="item">
+        <button class="material-icons md-25">arrow_forward_ios</button>
+      </div>
+    </div>
+  </div>       
+    
+    
+    
+    
+    
+    
+    
+    <div id="AVR"><div class="nxt-loader0"></div><p>Please wait a moment...</p></div>
+
+<footer id="main-footer"></footer>
+    
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>  
+    <script src="scripts/contents.js"></script>
+        <script src="scripts/footer.js"></script>
+    <script src="scripts/videoplayer.v1.min.js"></script>
+</body>
+</html>
+
+
+
