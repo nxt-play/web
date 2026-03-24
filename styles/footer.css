@@ -1,0 +1,41 @@
+.footer{
+  width: 100vw;
+    text-align: center;
+}
+.footer img{
+  width: 100%;
+  object-fit: contain;
+  height: 70px;
+}
+.footer a{
+  color: #ccc;
+  width: 100vw;
+  font-size: 12px;
+margin-top: 10px;
+  text-decoration: none;
+}
+.space1{
+  height: 10px;
+}
+.space2{
+  height: 80px;
+}
+.br{
+  width: 1px;
+  height: 50px;
+  background-color: #ccc;
+}
+.im{
+  height: 70px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.im img{
+  height: 80px;
+  width: 100%;
+  object-fit: contain;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
