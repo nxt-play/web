@@ -1,0 +1,191 @@
+*{margin: 0px;}
+body{
+  background-color: #090012;
+  margin: 0px;
+}
+  :root {
+            --bg-color: #0f1014;
+            --card-width: 80vw;
+            --card-max-width: 450px;
+            --gap: 20px;
+            --accent: #e50914;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .carousel-container {
+            width: 100%;
+            padding: 60px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Track */
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            cursor: grab;
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .carousel-track:active {
+            cursor: grabbing;
+        }
+
+        /* Card Styles */
+        .card {
+            width: var(--card-width);
+            max-width: var(--card-max-width);
+            height: 500px;
+            margin-right: var(--gap);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transform: scale(0.9);
+            opacity: 0.4;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+            flex-shrink: 0;
+        }
+
+        .card.active {
+            transform: scale(1.05);
+            opacity: 1;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        /* Content Overlay */
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 20px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.95));
+            pointer-events: none;
+        }
+
+        .card-content h2 { margin: 0 0 8px; font-size: 1.5rem; }
+        .card-content p { margin: 0; font-size: 0.9rem; color: #ccc; }
+
+        /* Navigation Arrows (Optional) */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            border: none;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 50%;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+.anime{
+  margin: 10px;
+}
+.anime p{
+  margin-left: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.kids{
+  margin: 10px;
+}
+.kids p{
+  margin-left: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+.List{display: flex;width: 100%;overflow: auto;}
+.List .item img{
+  width: 140px;
+  margin: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+  height: 212px;
+}
+.List .item button{
+  margin: 5px;
+  border-radius: 5px;
+  width: 140px;
+  background-color: #0a0b10;
+  color: #fff;
+  border: none;
+  height: 212px;
+}
+.gallery {
+  background: #0a0b10;
+width: 100%;
+    border-radius: 10px;
+}
+
+.gallery-cell {
+  width: 80%;
+  height: 400px;
+  margin-right: 10px;
+  background: #8C8;
+ counter-increment: gallery-cell;
+    margin: 0px;
+  background-color: #000;
+  object-fit: cover;
+  display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: flex-end; /* Aligns content to the bottom */
+    align-items: flex-end;
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  /**content: counter(gallery-cell);**/
+  line-height: 400px;
+  font-size: 80px;
+  color: white;
+}
+
+/**Content**/
+
+
+.head{
+  position: fixed;
+  width: 100vw;
+  margin: 0px;
+  height: 70px;
+  align-content: center;
+  z-index: 1000;
+  background-color: #0f1014;
+}
+.head img{
+  height: 50px;
+  margin-left: 10px;
+}
+.space2{
+  height: 0px;
+}
+.anime .item button{font-size: 14px;color: #f39c12;background-color: transparent;border: 1px solid #f39c12;border-radius: 10px;height: 20px;}
