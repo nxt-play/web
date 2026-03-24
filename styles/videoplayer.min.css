@@ -1,0 +1,1002 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+:root{
+    --btn-65-height: 30px;
+    --btn-65-width: 30px;
+    --aspect-ratio: 16/9;
+    --darkMode: #0f0f0f;
+    --svg-clr-light: white;
+    --clr-light: #fff;
+    --clr-dark: #0f0f0f;
+    --svg-clr-dark: var(--darkMode);
+}
+
+.spaceV{
+  height: 100%;
+}
+.container{
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16/9; 
+    border-radius: 0px;
+    background-color: #8505ff;
+    overflow: hidden;
+        
+}
+.controls{
+    position: relative;
+    aspect-ratio: 16/9; 
+    width: 100%;
+    max-width: 900px;
+    border-radius: 0px;
+   top: 0;
+    left: 0;
+}
+.top{
+  width: 100%;
+    z-index: 10000;
+}
+.t-1{
+  width: 100%;
+    
+  display: flex;
+}
+.spaceH{
+  width: 100%;
+}
+.t-1 button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 30px;
+    height: 50px;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/* button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    float: left;
+    font-size: 24px;
+    margin-left: 0px;
+    margin-right: 0px;
+}*/
+#vptitle{
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px;
+    width: 200px;
+    text-align: left;
+}
+#vpsubtitle{
+    color: #fff;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-top: -4px;
+    width: 200px;
+    text-align: left;
+}
+.cbi{
+    display: flex;
+    align-items: right;
+}
+.ts{
+    
+}
+.mid{
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 60px;
+    
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+    
+}
+.mid button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+}
+.mid-1 button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    margin-right: 50px;
+}
+.mid-1{
+    width: 50%;
+    text-align: right;
+}
+.mid-3{
+    width: 50%;
+    text-align: left;
+}
+.mid-3 button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    margin-left: 50px;
+}
+@keyframes loading {
+  0% { 
+    transform: rotate(0); 
+  }
+  100% { 
+    transform: rotate(360deg);
+  }
+}
+.mid-2{
+    align-content: center;
+}
+.mid-2 img{
+  height: 35px;
+    width: 35px;
+    
+animation: loading 0.4s linear infinite;
+}
+.bottom{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    
+    z-index: 100;    
+    padding: 0px 5px 10px 5px;
+}
+svg{
+        cursor: pointer;
+    fill: var(--svg-clr-light); 
+}
+.inner{
+       accent-color: #02B6FF;
+    width: 100%;
+    height: 100%;
+  --track-color: #02B6FF;
+  border-radius: 50px;
+    
+}
+input[type="range"]{
+  accent-color: #0089FF;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  outline: none;
+}
+
+.b-1 p{
+    color: #fff;
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 10px;
+    float: right;
+}
+.b-3{
+    display: flex;
+    align-content: center;
+    margin-top: 10px;
+    display: none;
+}
+
+#pauseV{display: none;}
+#playV{display: none;}
+
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+}
+
+
+video {
+    width: 100%; 
+    aspect-ratio: 16/9;
+    display: block;
+}
+
+
+.controls {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.3);
+}
+.b-3 button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+}
+#nm{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#nm1{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#nm3{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#nmRate{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    margin-left: 5px;
+}
+#speedCT{
+    color: #ccc;
+    font-weight: 400;
+    font-size: 12px;
+    margin-left: 3px;
+}
+.m23{
+    width: 10px;
+}
+.side-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 10px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s;
+    z-index: 1000; /* Extremely high to stay on top */
+    pointer-events: none; 
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+.bar {
+    width: 2px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    position: relative;
+}
+
+.fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+}
+.side-indicator span { color: white; font-size: 20px; }
+/* Ensure the controls layer allows touch to work for the script */
+.controls {
+    pointer-events: auto;
+    touch-action: none; /* Prevents browser pull-to-refresh while sliding */
+}
+.top {
+    pointer-events: auto;
+    touch-action: none; /* Prevents browser pull-to-refresh while sliding */
+}
+
+/* Ensure icons/text inside side-indicators don't capture touch */
+.side-indicator * {
+    pointer-events: none;
+}
+
+/* Make sure the video is the base layer */
+#v {
+    z-index: 1;
+}
+
+/* Brightness backdrop should be above video but below controls */
+#brightness-backdrop {
+    z-index: 2; 
+}
+.seek-feedback {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 2000;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+#seek-left { left: 25%; }
+#seek-right { left: 75%; }
+.seek-feedback span { color: white; font-size: 40px; }
+.show-seek { opacity: 1 !important; }
+
+/* --- MASTER UI STATES --- */
+
+/* 1. Base State: Hidden by default */
+#playV, #pauseV, .nxt-loader {
+    display: none !important;
+    opacity: 0;
+}
+
+/* 2. Active State: Higher specificity to force visibility */
+#playV.show-element, 
+#pauseV.show-element, 
+.nxt-loader.show-element {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+/* 3. Spinner Animation 
+.nxt-loader.show-element {
+    animation: loading 0.4s linear infinite;
+    width: 35px;
+    height: 35px;
+}
+*/
+/* 4. Layout Center */
+.mid-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+}.progress-area {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    overflow: visible;
+}
+
+.buffered-bar {
+    position: absolute;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    width: 0%;
+    z-index: 1;
+}
+
+.current-progress {
+    position: absolute;
+    height: 100%;
+    background: #0089FF; /* Your accent color */
+    width: 0%;
+    z-index: 2;
+}
+
+.progress-dot {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: none; /* Only show on hover/touch */
+}
+
+.progress-area:hover .progress-dot { display: block; }
+.progress-area:hover .progress-bar { height: 2px; }
+
+/* The invisible input that handles the clicks */
+.progress-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 4;
+}
+/* Base state for controls */
+.controls {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    pointer-events: auto; 
+    z-index: 20;
+}
+
+/* The "Hidden" state controlled by JS */
+.video-wrapper[data-state="hidden"] .controls {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Allows clicks to pass through to the video wrapper */
+}
+
+/* Ensure icons/buffer remain centered */
+.mid {
+    pointer-events: none; /* Let clicks pass through to the control layer background */
+}
+.mid button, .mid-2 img {
+    pointer-events: auto; /* Buttons still need to be clickable */
+}
+/* The Fullscreen Dark Overlay */
+.settings-backdrop {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% Opacity Background */
+    backdrop-filter: blur(4px); /* Adds that premium glass look */
+    display: block; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.settings-backdrop.active {
+    display: flex;
+}
+
+/* The Modal Sheet */
+.settings-sheet {
+    width: 90%;
+    max-width: 550px;
+    background: #121821; /* Solid dark background for the menu itself */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    color: white;
+}
+
+.settings-tabs {
+    display: flex;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-item {
+    padding: 12px 18px;
+    color: #8a8e9b;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-item.active {
+    color: white;
+    font-weight: bold;
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 18px; right: 18px;
+    height: 2px; background: white;
+}
+
+.pane { display: none; padding: 10px 0; }
+.pane.active { display: block;     height: 100px
+    overflow: auto;
+    overflow-y: auto;}
+
+.option-item {
+    padding: 15px 30px;
+    color: #aab0bd;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    
+}
+
+.option-item.selected { color: white; }
+.option-item .material-icons { font-size: 18px; color: #3498db; margin-right: 12px; }
+
+.upgrade-tag {
+    margin-left: 10px;
+    font-size: 10px;
+    color: #f39c12;
+    padding: 2px 6px;
+    border: 1px solid #f39c12;
+    border-radius: 4px;
+}
+/* 1. The container for all panes must have a fixed max-height */
+.tab-panes {
+    height: 120px; /* Adjust based on your player height */
+    overflow-y: auto;  /* Enables vertical scrolling */
+    padding-bottom: 10px;
+    
+    /* Smooth scrolling for mobile devices */
+    -webkit-overflow-scrolling: touch; 
+}
+
+/* 2. Professional Slim Scrollbar for Webkit (Chrome/Safari/Edge) */
+.tab-panes::-webkit-scrollbar {
+    width: 4px;
+}
+
+.tab-panes::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.tab-panes::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+/* 3. Ensure the active pane behaves correctly inside the scroll area */
+.pane.active {
+    display: flex;
+    flex-direction: column;
+    min-height: min-content;
+    overflow: auto
+}
+
+/* 4. Visual Feedback for long lists */
+.option-item {
+    flex-shrink: 0; /* Prevents items from squishing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+/* The Fullscreen Dark Overlay */
+.settings-backdrop {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* 50% Opacity Background */
+    backdrop-filter: blur(4px); /* Adds that premium glass look */
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.settings-backdrop.active {
+    display: flex;
+}
+
+/* The Modal Sheet */
+.settings-sheet {
+    width: 100%;
+    height: 100%;
+    max-width: 550px;
+    background: transparent; /* Solid dark background for the menu itself */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    color: white;
+}
+
+.settings-tabs {
+    display: flex;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-item {
+    padding: 12px 18px;
+    color: #8a8e9b;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tab-item.active {
+    color: white;
+    font-weight: bold;
+}
+
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 18px; right: 18px;
+    height: 2px; background: white;
+}
+
+.pane { display: none; padding: 10px 0; }
+.pane.active { display: block; }
+
+.option-item {
+    padding: 15px 30px;
+    color: #aab0bd;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.option-item.selected { color: white; }
+.option-item .material-icons { font-size: 18px; color: #3498db; margin-right: 12px; }
+
+.upgrade-tag {
+    margin-left: 10px;
+    font-size: 10px;
+    color: #f39c12;
+    padding: 2px 6px;
+    border: 1px solid #f39c12;
+    border-radius: 4px;
+}
+.report-btn{
+    margin-left: 10px;
+    font-size: 10px;
+    color: #f39c12;
+    padding: 2px 6px;
+    border: 1px solid #f39c12;
+    border-radius: 4px;
+    background-color: transparent;
+}
+#close-settings{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 50px;
+    font-size: 24px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+/* Style for the checkmark in the list */
+.option-item .check {
+    font-size: 18px;
+    color: #0089FF; /* Highlight color */
+    margin-right: 12px;
+}
+
+.option-item.selected {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08); /* Subtle highlight */
+    font-weight: 500;
+}
+
+/* Ensure the scrollable pane doesn't hide the checkmark */
+.tab-panes {
+    scrollbar-gutter: stable; 
+}
+#quality .option-item.selected {
+    color: #ffffff;
+    background: rgba(0, 137, 255, 0.1);
+}
+
+#quality .option-item .check {
+    font-size: 18px;
+    color: #0089FF;
+    margin-right: 12px;
+}
+/* Style when the container is in native fullscreen */
+#player-container:fullscreen {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+/* Adjusting the video height in fullscreen */
+#player-container:fullscreen video {
+    max-height: 100vh;
+    aspect-ratio: 16/9;
+     /* Maintains aspect ratio */
+}
+
+/* Hide navigation bars on mobile when in fullscreen */
+#player-container:fullscreen .controls {
+    padding-bottom: 20px; /* Extra space for gesture bars */
+}
+#player-container:fullscreen .tab-panes {
+    height: 300px;
+    overflow-y: auto;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch; 
+}
+#player-container:fullscreen .b-3{
+    display: block;
+    display: flex;
+}
+#player-container:fullscreen .ts{
+    width: 100%;
+}
+#player-container:fullscreen #pipBtn2{
+    display: none;
+}
+#player-container:fullscreen .t-1 button{
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#speedBtnBar {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+#speedBtnBar:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #0089FF;
+}
+video {
+    width: 100%;
+    display: block;
+    background-color: transparent !important; /* Removes the initial black box */
+    outline: none;
+}
+
+#player-container {
+    background-color: #000; /* Set the background on the container instead */
+    /* Add a subtle fade-in for the video once it starts */
+}
+.mid-2 button{
+    display: none;
+} 
+.mid-2 img {
+    display: block; /* Buttons still need to be clickable */
+}
+
+.main-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.4s ease;
+}
+.active-video {
+    z-index: 2;
+    opacity: 1;
+}
+track{
+    background-color: transparent;
+}
+/* 1. The Main Cue Styling */
+video::cue {
+    /* Background: Semi-transparent deep charcoal */
+    background-color: rgba(0, 0, 0, 0); 
+    
+    /* Text Color */
+    color: #ffffff;
+    
+    /* Typography */
+    font-family: "Inter", "Roboto", sans-serif;
+    font-size: 12px;
+    
+    /* The Text Shadow: "Drop Shadow" effect for depth */
+    /* format: x-offset y-offset blur-radius color */
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
+}
+
+/* 2. Fullscreen Scaling */
+/* Subtitles need to be larger when the player fills the screen */
+#player-container:fullscreen video::cue {
+    font-size: 1.5rem;
+    padding: 5px 10px;
+}
+/* Specific style for Hindi subtitles */
+video::cue(:lang(hi)) {
+    color: #ffffff; /* Gold/Yellow text */
+    background-color: rgba(0, 0, 0, 0);
+}
+video::cue {
+    text-shadow: 1px 1px 5px #000;
+}
+#gesture-layer {
+    background: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.buffer-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    z-index: 15; /* Above video, below menu */
+    display: none;
+}
+
+.buffer-icon.show-element {
+    display: block;
+}
+.next-overlay {
+    position: absolute;
+    inset: 0;
+    /*background: rgba(0, 0, 0, 0.85);*/
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+    background-color: #000;
+}
+.next-btns {
+    margin-top: 20px;
+    display: flex; 
+    gap: 15px; 
+    justify-content: center; 
+}
+.cancel-btn { 
+    background: #444; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+.play-now-btn { 
+    background: #fff; 
+    color: #000; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+#countdown-timer { 
+    font-size: 4rem; 
+    margin: 10px 0; 
+    color: #fff; 
+}
+.rating-card {
+    max-width: 300px;
+    padding: 20px;
+    text-align: center;
+}
+.star-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+.star {
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    color: #ccc; /* Default gray */
+}
+.star.active {
+    color: #ffcc00; /* Gold */
+}
+.star:hover {
+    transform: scale(1.2);
+}
+#rating-text {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.s1 {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide-left {
+    animation: slideLeft 0.4s ease-out;
+}
+
+.slide-right {
+    animation: slideRight 0.4s ease-out;
+}
+
+@keyframes slideLeft {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+
+
+.nxt-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(#0F1014, #3B82F6, #A855F7);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+  animation: nxt-spin 0.8s infinite linear;
+    background-color: #eee;
+    z-index: 1000
+}
+
+@keyframes nxt-spin {
+  from {
+    /* Keep the centering translate and start rotation at 0 */
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    /* Keep the centering translate and end at 360 degrees */
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
