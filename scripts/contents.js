@@ -577,9 +577,9 @@ item.addEventListener('click', async () => {
         }
 
         if (result && result.url) {
-            
-            changeVideoSource(result.url, qualityType); // Keep 'auto' as label for UI checkmark
-            changeVideoSource();
+            video.src = data.download_url;
+            //changeVideoSource(result.url, qualityType); // Keep 'auto' as label for UI checkmark
+          //  changeVideoSource();
         } else {
             bufferImg.classList.remove('show-element');
         }
