@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Media Downloader</title>
@@ -179,15 +177,12 @@
             skeleton.style.display = 'block';
             btn.disabled = true;
 
-            const proxy = 'https://api.allorigins.win/raw?url=';
-    const target = 'https://media-downloader-app.vercel.app/api/download';
-
-    try {
-        const response = await fetch(proxy + encodeURIComponent(target), {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ url: inputUrl })
-        });
+            try {
+                const response = await fetch(RENDER_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: input })
+                });
 
                 const result = await response.json();
 
