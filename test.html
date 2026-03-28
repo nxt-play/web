@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Downloader Pro</title>
+    <style>
+        :root {
+            --primary: #1976d2;
+            --error: #d32f2f;
+            --success: #2e7d32;
+            --gray: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fafafa;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 20px;
+        }
+
+        /* Search Bar Styles */
+        .search-box {
+            display: flex;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        button:disabled { background: #ccc; cursor: not-allowed; }
+
+        /* Error/Alert */
+        #error-msg {
+            background: #fdeded;
+            color: var(--error);
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        /* Result Card */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: none;
+        }
+
+        .card-header { padding: 16px; display: flex; align-items: center; gap: 12px; }
+        .avatar { width: 40px; height: 40px; background: #9c27b0; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        
+        .video-meta h3 { margin: 0; font-size: 16px; }
+        .video-meta p { margin: 0; font-size: 14px; color: #666; }
+
+        .download-area {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .dl-link {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* Skeleton Loading Animation */
+        .skeleton {
+            background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            display: none;
+            height: 300px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div id="error-msg"></div>
+
+        <div class="search-box">
+            <input type="text" id="url-input" placeholder="Paste YouTube link here...">
+            <button id="dl-btn" onclick="fetchMedia()">Download</button>
+        </div>
+
+        <div id="loader" class="skeleton"></div>
+
+        <div id="result-card" class="card">
+            <div class="card-header">
+                <div id="v-avatar" class="avatar">?</div>
+                <div class="video-meta">
+                    <h3 id="v-title">Title</h3>
+                    <p id="v-author">Author</p>
+                </div>
+            </div>
+            
+            <iframe id="v-frame" width="100%" height="350" frameborder="0" allowfullscreen></iframe>
+
+            <div id="dl-links" class="download-area"></div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchMedia() {
+            const urlInput = document.getElementById('url-input').value.trim();
+            const errorBox = document.getElementById('error-msg');
+            const resultCard = document.getElementById('result-card');
+            const loader = document.getElementById('loader');
+            const btn = document.getElementById('dl-btn');
+
+            // 1. Validation
+            errorBox.style.display = 'none';
+            resultCard.style.display = 'none';
+            
+            if (!urlInput) {
+                showError("Please Provide Valid URL");
+                return;
+            }
+
+            // 2. Start Loading
+            loader.style.display = 'block';
+            btn.disabled = true;
+
+            try {
+                // 3. Actual API Call to your Vercel endpoint
+                const response = await fetch('https://media-downloader-app.vercel.app/api/download', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url: urlInput })
+                });
+
+                const json = await response.json();
+
+                if (json && json.code === 1000) {
+                    renderResult(json.data);
+                } else {
+                    showError("Could not fetch media. Check the link.");
+                }
+            } catch (err) {
+                showError("CORS Error: The API restricted this request. (Try running on a server or using a proxy)");
+            } finally {
+                loader.style.display = 'none';
+                btn.disabled = false;
+            }
+        }
+
+        function renderResult(data) {
+            document.getElementById('result-card').style.display = 'block';
+            document.getElementById('v-title').innerText = data.title;
+            document.getElementById('v-author').innerText = data.author;
+            document.getElementById('v-avatar').innerText = data.author[0].toUpperCase();
+            
+            // Generate Embed URL
+            const videoId = data.url.split('v=')[1] || data.url.split('/').pop();
+            document.getElementById('v-frame').src = `https://www.youtube.com/embed/${videoId}`;
+
+            // Create Download Buttons
+            const linkContainer = document.getElementById('dl-links');
+            linkContainer.innerHTML = ''; // Clear old links
+            
+            data.medias.filter(m => m.type !== 'image').forEach(media => {
+                const a = document.createElement('a');
+                a.className = 'dl-link';
+                a.href = media.url;
+                a.target = '_blank';
+                a.innerText = `${media.quality.toUpperCase()} (.${media.extension})`;
+                linkContainer.appendChild(a);
+            });
+        }
+
+        function showError(msg) {
+            const errorBox = document.getElementById('error-msg');
+            errorBox.innerText = msg;
+            errorBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
