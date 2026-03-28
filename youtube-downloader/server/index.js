@@ -22,6 +22,6 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // server/index.js
 app.use(cors({
-  origin: 'https://yourname.github.io' // Replace with your actual GitHub Pages URL
+  origin: 'https://nxt-play.github.io' // Replace with your actual GitHub Pages URL
 }));
 
