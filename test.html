@@ -1,89 +1,112 @@
-<!DOCTYPE html>
+,<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Downloader Pro</title>
+    <title>AI Media Downloader</title>
     <style>
         :root {
-            --primary: #1976d2;
-            --error: #d32f2f;
-            --success: #2e7d32;
-            --gray: #e0e0e0;
+            --primary: #de3e3e; /* YouTube Red */
+            --bg: #f9f9f9;
+            --card: #ffffff;
+            --text: #0f0f0f;
+            --skeleton: #e5e5e5;
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #fafafa;
+            font-family: "Roboto", Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
             display: flex;
             justify-content: center;
-            padding-top: 40px;
+            padding: 40px 20px;
         }
 
-        .app-container {
-            width: 100%;
-            max-width: 700px;
-            padding: 20px;
-        }
+        .container { width: 100%; max-width: 600px; }
 
-        /* Search Bar Styles */
-        .search-box {
+        /* Search Section */
+        .search-area {
+            background: var(--card);
+            padding: 8px;
+            border-radius: 40px;
             display: flex;
-            background: white;
-            padding: 5px;
-            border-radius: 4px;
-            box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #ccc;
             margin-bottom: 20px;
         }
 
         input {
             flex: 1;
             border: none;
-            padding: 12px;
+            padding: 10px 20px;
             font-size: 16px;
             outline: none;
+            background: transparent;
         }
 
         button {
             background: var(--primary);
             color: white;
             border: none;
-            padding: 10px 24px;
-            border-radius: 4px;
+            padding: 10px 25px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 600;
-            transition: 0.2s;
+            font-weight: bold;
+            transition: opacity 0.2s;
         }
 
-        button:disabled { background: #ccc; cursor: not-allowed; }
+        button:hover { opacity: 0.9; }
+        button:disabled { background: #999; }
 
-        /* Error/Alert */
+        /* Error Message */
         #error-msg {
+            color: #d32f2f;
             background: #fdeded;
-            color: var(--error);
             padding: 12px;
-            border-radius: 4px;
-            margin-bottom: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
             display: none;
+            text-align: center;
+        }
+
+        /* Skeleton Loading */
+        #skeleton {
+            display: none;
+            background: var(--card);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .sk-box {
+            background: var(--skeleton);
+            height: 200px;
+            border-radius: 8px;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
         }
 
         /* Result Card */
-        .card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
-            overflow: hidden;
+        #result-card {
             display: none;
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .card-header { padding: 16px; display: flex; align-items: center; gap: 12px; }
-        .avatar { width: 40px; height: 40px; background: #9c27b0; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-        
-        .video-meta h3 { margin: 0; font-size: 16px; }
-        .video-meta p { margin: 0; font-size: 14px; color: #666; }
+        .info { padding: 15px; border-bottom: 1px solid #eee; }
+        .info h3 { margin: 0 0 5px 0; font-size: 18px; }
+        .info p { margin: 0; color: #606060; font-size: 14px; }
 
-        .download-area {
+        iframe { border: none; background: #000; display: block; }
+
+        .links {
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
@@ -91,134 +114,119 @@
             justify-content: center;
         }
 
-        .dl-link {
-            background: var(--primary);
-            color: white;
+        .dl-btn {
+            background: #f2f2f2;
+            color: #0f0f0f;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* Skeleton Loading Animation */
-        .skeleton {
-            background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-            display: none;
-            height: 300px;
+            padding: 10px 20px;
             border-radius: 8px;
-            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #ddd;
         }
 
-        @keyframes loading {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
+        .dl-btn:hover { background: #e5e5e5; }
     </style>
 </head>
 <body>
 
-    <div class="app-container">
+    <div class="container">
         <div id="error-msg"></div>
 
-        <div class="search-box">
-            <input type="text" id="url-input" placeholder="Paste YouTube link here...">
-            <button id="dl-btn" onclick="fetchMedia()">Download</button>
+        <div class="search-area">
+            <input type="text" id="url-input" placeholder="Paste YouTube link here..." value="https://m.youtube.com/watch?v=ZPyP5UF7yrU">
+            <button id="main-btn" onclick="startDownload()">Download</button>
         </div>
 
-        <div id="loader" class="skeleton"></div>
+        <div id="skeleton">
+            <div class="sk-box"></div>
+            <div style="height:20px; width:60%; background:#eee; margin-top:10px;"></div>
+        </div>
 
-        <div id="result-card" class="card">
-            <div class="card-header">
-                <div id="v-avatar" class="avatar">?</div>
-                <div class="video-meta">
-                    <h3 id="v-title">Title</h3>
-                    <p id="v-author">Author</p>
-                </div>
+        <div id="result-card">
+            <div class="info">
+                <h3 id="res-title"></h3>
+                <p id="res-author"></p>
             </div>
-            
-            <iframe id="v-frame" width="100%" height="350" frameborder="0" allowfullscreen></iframe>
-
-            <div id="dl-links" class="download-area"></div>
+            <iframe id="res-frame" width="100%" height="315" allowfullscreen></iframe>
+            <div id="res-links" class="links"></div>
         </div>
     </div>
 
     <script>
-        async function fetchMedia() {
-            const urlInput = document.getElementById('url-input').value.trim();
-            const errorBox = document.getElementById('error-msg');
-            const resultCard = document.getElementById('result-card');
-            const loader = document.getElementById('loader');
-            const btn = document.getElementById('dl-btn');
+        // CHANGE THIS to your live Render URL once deployed
+        const RENDER_API_URL = "https://media-downloader-app.vercel.app/api/download";
 
-            // 1. Validation
-            errorBox.style.display = 'none';
-            resultCard.style.display = 'none';
+        async function startDownload() {
+            const input = document.getElementById('url-input').value.trim();
+            const error = document.getElementById('error-msg');
+            const skeleton = document.getElementById('skeleton');
+            const card = document.getElementById('result-card');
+            const btn = document.getElementById('main-btn');
+
+            // Reset
+            error.style.display = 'none';
+            card.style.display = 'none';
             
-            if (!urlInput) {
-                showError("Please Provide Valid URL");
+            if (!input) {
+                showError("Please provide a valid URL");
                 return;
             }
 
-            // 2. Start Loading
-            loader.style.display = 'block';
+            // UI State
+            skeleton.style.display = 'block';
             btn.disabled = true;
 
-       const proxy = 'https://api.allorigins.win/raw?url=';
-    const target = 'https://media-downloader-app.vercel.app/api/download';
-
-    try {
-        const response = await fetch(proxy + encodeURIComponent(target), {
+            try {
+                const response = await fetch(RENDER_API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ url: urlInput })
+                    body: JSON.stringify({ url: input })
                 });
 
-                const json = await response.json();
+                const result = await response.json();
 
-                if (json && json.code === 1000) {
-                    renderResult(json.data);
+                if (result.code === 1000) {
+                    displayResult(result.data);
                 } else {
-                    showError("Could not fetch media. Check the link.");
+                    showError("API Error: Unable to process this video.");
                 }
             } catch (err) {
-                showError("CORS Error: The API restricted this request. (Try running on a server or using a proxy)");
+                showError("Connection Failed. Check if your Render server is live.");
             } finally {
-                loader.style.display = 'none';
+                skeleton.style.display = 'none';
                 btn.disabled = false;
             }
         }
 
-        function renderResult(data) {
-            document.getElementById('result-card').style.display = 'block';
-            document.getElementById('v-title').innerText = data.title;
-            document.getElementById('v-author').innerText = data.author;
-            document.getElementById('v-avatar').innerText = data.author[0].toUpperCase();
-            
-            // Generate Embed URL
-            const videoId = data.url.split('v=')[1] || data.url.split('/').pop();
-            document.getElementById('v-frame').src = `https://www.youtube.com/embed/${videoId}`;
+        function displayResult(data) {
+            const card = document.getElementById('result-card');
+            document.getElementById('res-title').innerText = data.title;
+            document.getElementById('res-author').innerText = data.author;
 
-            // Create Download Buttons
-            const linkContainer = document.getElementById('dl-links');
-            linkContainer.innerHTML = ''; // Clear old links
-            
-            data.medias.filter(m => m.type !== 'image').forEach(media => {
+            // Extract ID for Iframe
+            const vidId = data.url.split('v=')[1] || data.url.split('/').pop();
+            document.getElementById('res-frame').src = `https://www.youtube.com/embed/${vidId}`;
+
+            // Build Buttons
+            const linkBox = document.getElementById('res-links');
+            linkBox.innerHTML = '';
+            data.medias.filter(m => m.type !== 'image').forEach(m => {
                 const a = document.createElement('a');
-                a.className = 'dl-link';
-                a.href = media.url;
+                a.className = 'dl-btn';
+                a.href = m.url;
                 a.target = '_blank';
-                a.innerText = `${media.quality.toUpperCase()} (.${media.extension})`;
-                linkContainer.appendChild(a);
+                a.innerText = `${m.quality} (.${m.extension})`;
+                linkBox.appendChild(a);
             });
+
+            card.style.display = 'block';
         }
 
-        function showError(msg) {
-            const errorBox = document.getElementById('error-msg');
-            errorBox.innerText = msg;
-            errorBox.style.display = 'block';
+        function showError(text) {
+            const error = document.getElementById('error-msg');
+            error.innerText = text;
+            error.style.display = 'block';
         }
     </script>
 </body>
