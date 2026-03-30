@@ -274,6 +274,7 @@ body{
   color: white;
   margin-top: 10px;
   font-weight: 500;
+max-width: 95vw;
 }
 
 #SvideoWBG{
