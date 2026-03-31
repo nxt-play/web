@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Player - Adaptive Unmute</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel="stylesheet">
+    <style>
+        :root {
+            --accent: #0089FF;
+            --track: rgba(255, 255, 255, 0.2);
+        }
+
+        body { margin: 0; background: #000; color: white; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        video { width: 100%; height: 100%; display: block; object-fit: contain; }
+
+        /* --- LOADER --- */
+        .loader-container {
+            position: absolute;
+            inset: 0;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            z-index: 30; 
+            pointer-events: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .buffering .loader-container { visibility: visible; opacity: 1; }
+        .nxt-loader {
+          width: 50px; height: 50px; border-radius: 50%;
+          background: conic-gradient(#0F1014, #3B82F6, #A855F7);
+          mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+          -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #fff 0);
+          animation: nxt-spin 0.8s infinite linear;
+        }
+        @keyframes nxt-spin { to { transform: rotate(1turn); } }
+
+        /* --- OVERLAY --- */
+        .controls-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            z-index: 10;
+            background: rgba(0,0,0,0.3);
+            transition: opacity 0.5s ease;
+        }
+        .controls-hidden { opacity: 0; pointer-events: none; }
+
+        .btn { background: none; border: none; color: white; cursor: pointer; display: flex; align-items: center; }
+        .filled { font-variation-settings: 'FILL' 1; }
+
+        .layer-top { display: flex; justify-content: space-between; }
+        .title-stack { display: flex; flex-direction: column; margin-left: 10px; }
+        .v-title { margin: 0; font-size: 1rem; font-weight: 600; }
+        .v-subtitle { font-size: 0.8rem; color: #bbb; }
+
+        .layer-mid { display: flex; justify-content: center; align-items: center; gap: 15%; transition: opacity 0.3s; }
+        .buffering .layer-mid { opacity: 0 !important; visibility: hidden !important; }
+        .play-main span { font-size: 65px; }
+        .skip-btn span { font-size: 40px; opacity: 0.9; }
+
+        .layer-bottom { display: flex; flex-direction: column; width: 100%; }
+        .row-time { display: flex; justify-content: flex-end; font-size: 0.9rem; margin-bottom: 5px; }
+
+        /* --- PROGRESS BAR --- */
+        .progress-area {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .progress-bar {
+            position: relative;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+        .buffered-bar {
+            position: absolute;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            width: 0%;
+            z-index: 1;
+        }
+        .current-progress {
+            position: absolute;
+            height: 100%;
+            background: var(--accent);
+            width: 0%;
+            z-index: 2;
+            transition: none; 
+        }
+        .progress-dot {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 0 5px rgba(0,0,0,0.5);
+            display: none; 
+        }
+        .progress-area:hover .progress-dot { display: block; }
+        .progress-input {
+            position: absolute;
+            width: 100%; height: 100%;
+            opacity: 0; cursor: pointer; z-index: 4;
+        }
+
+        /* --- FULLSCREEN ONLY CONTROLS --- */
+        .row-controls {
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 5px;
+        }
+        .video-container:fullscreen .row-controls,
+        .video-container:-webkit-full-screen .row-controls {
+            display: flex;
+        }
+
+        .ctrl-group { display: flex; gap: 30px; align-items: center; }
+        .ctrl-unit { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="video-container buffering" id="player">
+    <div class="loader-container"><div class="nxt-loader"></div></div>
+
+    <video id="v" src="https://st25.febspot.com/remote_control.php?time=1774935377&cv=8fb1cd83d76615923ec5a9add921e93b&lr=0&cv2=1dfedb1603dcd24931954f83b1398d98&file=%2Fvideos%2F2859000%2F2859602%2F2859602_720p.mp4" 
+           preload="auto" autoplay muted playsinline></video>
+
+    <div class="controls-overlay" id="overlay">
+        <div class="layer-top">
+            <div style="display:flex; align-items: center;">
+                <button class="btn"><span class="material-symbols-outlined">arrow_back</span></button>
+                <div class="title-stack">
+                    <h1 class="v-title">Video Stream</h1>
+                    <span class="v-subtitle">Autoplay Active</span>
+                </div>
+            </div>
+            <div style="display:flex; gap:15px;">
+                <button class="btn"><span class="material-icons">settings</span></button>
+                <button class="btn"><span class="material-icons">picture_in_picture_alt</span></button>
+                <button class="btn" id="fs"><span class="material-icons">fullscreen</span></button>
+            </div>
+        </div>
+
+        <div class="layer-mid">
+            <button class="btn skip-btn" id="rw"><span class="material-symbols-outlined">replay_10</span></button>
+            <button class="btn play-main" id="pp"><span class="material-symbols-outlined filled">pause</span></button>
+            <button class="btn skip-btn" id="fw"><span class="material-symbols-outlined">forward_10</span></button>
+        </div>
+
+        <div class="layer-bottom">
+            <div class="row-time" id="t">00:00 / 00:00</div>
+            
+            <div class="progress-area">
+                <div class="progress-bar">
+                    <div class="buffered-bar" id="bufferedBar"></div> 
+                    <div class="current-progress" id="currProg"></div> 
+                    <div class="progress-dot" id="progDot"></div> 
+                </div>
+                <input type="range" class="progress-input" id="progInput" min="0" max="100" value="0" step="0.1">
+            </div>
+
+            <div class="row-controls">
+                <div class="ctrl-group">
+                    <div class="ctrl-unit"><span class="material-symbols-outlined">speed</span><span>Speed 1x</span></div>
+                    <div class="ctrl-unit"><span class="material-symbols-outlined">picture_in_picture_alt</span><span>Mini Player</span></div>
+                </div>
+                <div class="ctrl-group">
+                    <div class="ctrl-unit"><span class="material-symbols-outlined">skip_next</span><span>Next Episode</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const vid = document.getElementById('v');
+    const playBtn = document.getElementById('pp');
+    const player = document.getElementById('player');
+    const overlay = document.getElementById('overlay');
+    const tDisp = document.getElementById('t');
+    const progInput = document.getElementById('progInput');
+    const currProg = document.getElementById('currProg');
+    const bufferedBar = document.getElementById('bufferedBar');
+    const progDot = document.getElementById('progDot');
+    
+    let isDragging = false;
+    let fadeTimeout;
+
+    // --- SMOOTH PROGRESS ENGINE ---
+    function updateSmoothProgress() {
+        if (!isDragging && vid.duration) {
+            const p = (vid.currentTime / vid.duration) * 100;
+            currProg.style.width = p + "%";
+            progDot.style.left = p + "%";
+            progInput.value = p;
+            tDisp.innerText = `${formatTime(vid.currentTime)} / ${formatTime(vid.duration)}`;
+            
+            if (vid.buffered.length > 0) {
+                const bufferedEnd = vid.buffered.end(vid.buffered.length - 1);
+                bufferedBar.style.width = (bufferedEnd / vid.duration) * 100 + "%";
+            }
+        }
+        requestAnimationFrame(updateSmoothProgress);
+    }
+    requestAnimationFrame(updateSmoothProgress);
+
+    /**
+     * THE "BYPASS" LOGIC
+     * We start the video muted (so browser doesn't block it).
+     * The MOMENT the user touches the screen, we flip muted to false.
+     */
+    const forceUnmute = () => {
+        if (vid.muted) {
+            vid.muted = false;
+            // Some browsers pause the video when you flip muted state, so we force play
+            if (vid.paused) vid.play();
+            console.log("Audio unlocked by user interaction");
+        }
+        // Remove listeners immediately to save memory
+        ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => 
+            document.removeEventListener(ev, forceUnmute)
+        );
+    };
+
+    // Listen globally for the very first interaction
+    ['click', 'touchstart', 'mousedown', 'keydown'].forEach(ev => 
+        document.addEventListener(ev, forceUnmute, { once: true })
+    );
+
+    // --- FULLSCREEN & ORIENTATION ---
+    async function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            await player.requestFullscreen();
+            if (screen.orientation?.lock) screen.orientation.lock("landscape").catch(() => {});
+        } else {
+            document.exitFullscreen();
+        }
+    }
+
+    window.screen.orientation?.addEventListener('change', () => {
+        if (window.screen.orientation.type.startsWith('landscape') && !document.fullscreenElement) {
+            toggleFullscreen();
+        }
+    });
+
+    // --- UI HELPERS ---
+    function showControls() {
+        overlay.classList.remove('controls-hidden');
+        clearTimeout(fadeTimeout);
+        if (!vid.paused) {
+            fadeTimeout = setTimeout(() => { overlay.classList.add('controls-hidden'); }, 3000);
+        }
+    }
+
+    const formatTime = (time) => {
+        if (!time || isNaN(time)) return "00:00";
+        let min = Math.floor(time / 60);
+        let sec = Math.floor(time % 60);
+        return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+    };
+
+    ['mousemove', 'touchstart', 'click'].forEach(evt => player.addEventListener(evt, showControls));
+
+    vid.onwaiting = () => player.classList.add('buffering');
+    vid.onplaying = () => {
+        player.classList.remove('buffering');
+        playBtn.innerHTML = '<span class="material-symbols-outlined filled">pause</span>';
+    };
+
+    // --- SLIDER & BUTTONS ---
+    progInput.onmousedown = () => isDragging = true;
+    progInput.onmouseup = () => isDragging = false;
+    progInput.oninput = () => {
+        vid.currentTime = (progInput.value / 100) * vid.duration;
+    };
+
+    playBtn.onclick = (e) => {
+        e.stopPropagation();
+        if (vid.paused) { 
+            vid.play(); 
+            forceUnmute(); // Ensure audio is on if manually played
+        } else { 
+            vid.pause(); 
+            playBtn.innerHTML = '<span class="material-symbols-outlined filled">play_arrow</span>'; 
+        }
+    };
+
+    document.getElementById('fs').onclick = (e) => { e.stopPropagation(); toggleFullscreen(); };
+    document.getElementById('rw').onclick = (e) => { e.stopPropagation(); vid.currentTime -= 10; };
+    document.getElementById('fw').onclick = (e) => { e.stopPropagation(); vid.currentTime += 10; };
+</script>
+
+</body>
+</html>
