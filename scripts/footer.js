@@ -1,66 +1,85 @@
-const footerConfig = {
-  logos: [
-    { src: "assets/cnxtplay.png", alt: "NXT Play" },
-    { src: "assets/avindia.png", alt: "AV India" }
+const footerData = {
+  logo: "https://nxt-play.github.io/web/assets/nxtplay.png",
+  sections: [
+    {
+      title: "Company",
+      links: [
+        { text: "About Us", url: "#" },
+        { text: "Careers", url: "#" }
+      ]
+    },
+    {
+      title: "View Website in",
+      content: '<span class="active-lang">✓ English</span>'
+    },
+    {
+      title: "Need Help?",
+      links: [
+        { text: "Visit Help Center", url: "#" },
+        { text: "Share Feedback", url: "#" }
+      ]
+    },
+    {
+      title: "Connect with Us",
+      socials: [
+        { img: "https://nxt-play.github.io/web/assets/icons/facebook0.png", url: "https://www.facebook.com/profile.php?id=61574479352916" },
+        { img: "https://nxt-play.github.io/web/assets/icons/whatsapp.png", url: "https://whatsapp.com/channel/0029VaZrHSl3gvWa2H6x2A2f" }
+      ]
+    }
   ],
-  links: [
-    { text: "About Us", href: "#" },
-    { text: "Contact Us", href: "#" },
-    { text: "Terms & Policy", href: "#" }
-  ],
-  copyright: "AV INDIA & NXT Play"
+  bottom: {
+    copyright: `© ${new Date().getFullYear()} NXT PLAY. All Rights Reserved.`,
+    legal: [
+      { text: "Terms Of Use", url: "#" },
+      { text: "Privacy Policy", url: "#" },
+      { text: "FAQ", url: "#" }
+    ]
+  },
+  badge: "https://nxt-play.github.io/web/assets/cnxtplay.png"
 };
 
 function renderFooter() {
-  const container = document.getElementById('main-footer');
-  container.className = "footer"; // Applies your existing CSS class
+  const container = document.getElementById('footer-container');
+  
+  let html = `
+    <div class="app-main">
+      <img src="${footerData.logo}" alt="Logo">
+    </div>
+  `;
 
-  // 1. Create Logo Section
-  const mainLogo = document.createElement('img');
-  mainLogo.src = footerConfig.logos[0].src;
-  container.appendChild(mainLogo);
-
-  const bySpan = document.createElement('span');
-  bySpan.textContent = " by ";
-  container.appendChild(bySpan);
-
-  const imDiv = document.createElement('div');
-  imDiv.className = "im";
-  const subLogo = document.createElement('img');
-  subLogo.src = footerConfig.logos[1].src;
-  imDiv.appendChild(subLogo);
-  container.appendChild(imDiv);
-
-  // 2. Add Spacing Helper
-  const addSpace = () => {
-    const space = document.createElement('div');
-    space.className = "space1";
-    container.appendChild(space);
-  };
-
-  addSpace();
-
-  // 3. Generate Links
-  footerConfig.links.forEach(linkItem => {
-    const a = document.createElement('a');
-    a.href = linkItem.href;
-    a.textContent = linkItem.text;
-    container.appendChild(a);
-    
-    container.appendChild(document.createElement('br'));
-    addSpace();
+  // Generate Sections
+  footerData.sections.forEach(section => {
+    html += `
+      <div class="footer-section">
+        <h3>${section.title}</h3>
+        <div class="footer-links">
+          ${section.links ? section.links.map(l => `<a href="${l.url}">${l.text}</a>`).join('') : ''}
+          ${section.content ? section.content : ''}
+          ${section.socials ? `
+            <div class="social-icons">
+              ${section.socials.map(s => `<a href="${s.url}" class="social-icon"><img src="${s.img}"></a>`).join('')}
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `;
   });
 
-  // 4. Copyright Section
-  const copyA = document.createElement('a');
-  const year = new Date().getFullYear();
-  copyA.textContent = `© ${year} ${footerConfig.copyright} • All Rights Reserved`;
-  container.appendChild(copyA);
+  // Generate Bottom Bar
+  html += `
+    <div class="footer-bottom">
+      <p>${footerData.bottom.copyright}</p>
+      <div class="legal-links">
+        ${footerData.bottom.legal.map(l => `<a href="${l.url}">${l.text}</a>`).join('')}
+      </div>
+    </div>
+    <div class="app-badges">
+      <img src="${footerData.badge}" alt="Badge">
+    </div>
+  `;
 
-  // Final spacing
-  addSpace();
-  addSpace();
+  container.innerHTML = html;
 }
 
-// Execute the render
-document.addEventListener('DOMContentLoaded', renderFooter);
+// Initialize
+renderFooter();

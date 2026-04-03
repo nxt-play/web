@@ -103,11 +103,25 @@ const track = document.getElementById('track');
 //  console.log("Clicked ID:", itemId);
 //}
 // Select all elements with the class "item"
-let items = document.querySelectorAll('.item');
+// Select all elements with the class "item"
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('click', function() {
+        const rawId = this.getAttribute('data-id');
+        
+            const itemId = btoa(rawId);
+            window.location.href = './content.html?id=' + itemId;
+        
+    });
+});
 
-items.forEach(item => {
-  item.addEventListener('click', function() {
-    const itemId = this.getAttribute('data-id');
-      window.location.href = './content?id=' + itemId;
-  });
+// FIXED: Selection for carousel cards
+// We use the 'cards' variable you already defined at the top of your script
+cards.forEach(card => {
+    card.addEventListener('click', function() {
+        const rawId = this.getAttribute('data-id');
+        if (rawId) {
+            const itemId = btoa(rawId);
+            window.location.href = './content.html?id=' + itemId;
+        }
+    });
 });
