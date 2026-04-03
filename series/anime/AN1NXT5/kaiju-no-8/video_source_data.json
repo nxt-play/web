@@ -1,1 +1,152 @@
+{
+  "S1": {
+    "E1": {
+      "Episode": "S1 E1",
+      "NXT Play": { "Original": "", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1CYPbgw82R/" },
+      "YouTube": { "Original": "" }
+    },
+    "E2": {
+      "Episode": "S1 E2",
+      "NXT Play": { "Original": "", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1GjfcHgkvJ/" },
+      "YouTube": { "Original": "" }
+    },
+    "E3": {
+      "Episode": "S1 E3",
+      "NXT Play": { "Original": "", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1CePJx5qCw/" },
+      "YouTube": { "Original": "" }
+    },
+    "E4": {
+      "Episode": "S1 E4",
+      "NXT Play": { "Original": "", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1H8qB5R4uS/" },
+      "YouTube": { "Original": "" }
+    },
+    "E5": {
+      "Episode": "S1 E5",
+      "NXT Play": { "Original": "", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/18V9cHRW91/" },
+      "YouTube": { "Original": "" }
+    },
+    "E6": {
+      "Episode": "S1 E6",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E7": {
+      "Episode": "S1 E7",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E8": {
+      "Episode": "S1 E8",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E9": {
+      "Episode": "S1 E9",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E10": {
+      "Episode": "S1 E10",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E11": {
+      "Episode": "S1 E11",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E12": {
+      "Episode": "S1 E12",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    }
+  },
+  "S2": {
+    "E0": {
+      "Episode": "Special Episode",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E1": {
+      "Episode": "S2 E1",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E2": {
+      "Episode": "S2 E2",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E3": {
+      "Episode": "S2 E3",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E4": {
+      "Episode": "S2 E4",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E5": {
+      "Episode": "S2 E5",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E6": {
+      "Episode": "S2 E6",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E7": {
+      "Episode": "S2 E7",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E8": {
+      "Episode": "S2 E8",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E9": {
+      "Episode": "S2 E9",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E10": {
+      "Episode": "S2 E10",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    },
+    "E11": {
+      "Episode": "S2 E11",
+      "NXT Play": { "Original": "NXT Play", "Quality": { "1080p": "", "720p": "", "480p": "", "360p": "" } },
+      "Facebook": { "Original": "" },
+      "YouTube": { "Original": "" }
+    }
+  }
+}
+
 
