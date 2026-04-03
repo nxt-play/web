@@ -1,18 +1,7 @@
-*{margin: 0px; 
- -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none; }
+*{margin: 0px;}
 body{
-  background-color: #090012;
+  background-color: #0f1014;
   margin: 0px;
-}
-body::-webkit-scrollbar {
-    display: none;
-}
-
-/* For Firefox and IE/Edge */
-body {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
 }
   :root {
             --bg-color: #0f1014;
@@ -23,7 +12,7 @@ body {
         }
 
         body {
-            margin: 0;
+            margin: 0px;
             background-color: var(--bg-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
@@ -109,26 +98,26 @@ body {
         .prev { left: 10px; }
         .next { right: 10px; }
 
-.anime{
-  margin: 10px;
+.main_container{
+  margin-left: 0px;
+  width: 100vw;
 }
-.anime p{
-  margin-left: 10px;
+.main_container p{
+  margin-left: 15px;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.kids{
-  margin: 10px;
+.List{display: flex;overflow: auto;margin-right: 5px;
+  margin-left: 5px;}
+.List .item{
+  position: relative;
+  display: inline-block;
+  width: 140px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
-.kids p{
-  margin-left: 10px;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-}
-.List{display: flex;width: 100%;overflow: auto;}
 .List .item img{
   width: 140px;
   margin: 5px;
@@ -145,65 +134,34 @@ body {
   border: none;
   height: 212px;
 }
-.gallery {
-  background: #0a0b10;
-width: 100%;
-    border-radius: 10px;
-}
 
-.gallery-cell {
-  width: 80%;
-  height: 400px;
-  margin-right: 10px;
-  background: #8C8;
- counter-increment: gallery-cell;
-    margin: 0px;
-  background-color: #000;
-  object-fit: cover;
-  display: flex;
-    flex-direction: column; /* Stacks children vertically */
-    justify-content: flex-end; /* Aligns content to the bottom */
-    align-items: flex-end;
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-size: cover;
-    border-radius: 10px;
-    margin: 10px;
-}
-
-/* cell number */
-.gallery-cell:before {
-  display: block;
-  text-align: center;
-  /**content: counter(gallery-cell);**/
-  line-height: 400px;
-  font-size: 80px;
-  color: white;
-}
-
-/**Content**/
-
-
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    background: conic-gradient(#A855F7, #3B82F6, #A855F7);
+    color: white;
+    padding: 5px 12px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
 .head{
   position: fixed;
   width: 100vw;
   margin: 0px;
-  height: 70px;
+  height: 50px;
   align-content: center;
   z-index: 1000;
-  background-color: transparent;
+  background-color: #0f1014;
 }
 .head img{
-  height: 50px;
+  height: 40px;
   margin-left: 10px;
 }
 .space2{
-  height: 50px;
-}
-.anime .item button{font-size: 14px;color: #f39c12;background-color: transparent;border: 1px solid #f39c12;border-radius: 10px;height: 20px;}
-.anime::-webkit-scrollbar {
-    display: none;
-}
-.anime {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;     /* Firefox */
+  height: 0px;
 }
