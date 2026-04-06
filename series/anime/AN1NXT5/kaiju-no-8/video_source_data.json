@@ -3,10 +3,10 @@
     "E1": {
       "Episode": "S1 E1",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/c4d69e4c-ff5a-4264-a7d4-1eeb26e0e201.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/UcqAG88i",
         "Quality": {
           "Auto": "https://stream.fastpix.io/c4d69e4c-ff5a-4264-a7d4-1eeb26e0e201.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/c4d69e4c-ff5a-4264-a7d4-1eeb26e0e201.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FUcqAG88i?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/c4d69e4c-ff5a-4264-a7d4-1eeb26e0e201.m3u8?max_resolution=360p"
         }
       },
@@ -15,10 +15,10 @@
     "E2": {
       "Episode": "S1 E2",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/409c5587-e143-4eba-8313-ce4ec5153e4c.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/2T4j3uTP",
         "Quality": {
           "Auto": "https://stream.fastpix.io/409c5587-e143-4eba-8313-ce4ec5153e4c.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/409c5587-e143-4eba-8313-ce4ec5153e4c.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2F2T4j3uTP?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/409c5587-e143-4eba-8313-ce4ec5153e4c.m3u8?max_resolution=360p"
         }
       },
@@ -27,10 +27,10 @@
     "E3": {
       "Episode": "S1 E3",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/4b2cf620-b9e8-4d18-abda-45b9aa0dafbd.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/6wGt7sYy",
         "Quality": {
           "Auto": "https://stream.fastpix.io/4b2cf620-b9e8-4d18-abda-45b9aa0dafbd.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/4b2cf620-b9e8-4d18-abda-45b9aa0dafbd.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2F6wGt7sYy?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/4b2cf620-b9e8-4d18-abda-45b9aa0dafbd.m3u8?max_resolution=360p"
         }
       },
@@ -39,10 +39,10 @@
     "E4": {
       "Episode": "S1 E4",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/266ab98c-1119-4371-839b-9c419e395fb3.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/wGXNXdPK",
         "Quality": {
           "Auto": "https://stream.fastpix.io/266ab98c-1119-4371-839b-9c419e395fb3.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/266ab98c-1119-4371-839b-9c419e395fb3.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FwGXNXdPK?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/266ab98c-1119-4371-839b-9c419e395fb3.m3u8?max_resolution=360p"
         }
       },
@@ -51,10 +51,10 @@
     "E5": {
       "Episode": "S1 E5",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/e65f3d64-172e-43c0-8df3-705c5cb95671.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/hirzEJ5Y",
         "Quality": {
           "Auto": "https://stream.fastpix.io/e65f3d64-172e-43c0-8df3-705c5cb95671.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/e65f3d64-172e-43c0-8df3-705c5cb95671.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FhirzEJ5Y?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/e65f3d64-172e-43c0-8df3-705c5cb95671.m3u8?max_resolution=360p"
         }
       },
@@ -63,10 +63,10 @@
     "E6": {
       "Episode": "S1 E6",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/78a5d6d3-7102-407c-8fd3-257bb3a8c055.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/PrgRUxNz",
         "Quality": {
           "Auto": "https://stream.fastpix.io/78a5d6d3-7102-407c-8fd3-257bb3a8c055.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/78a5d6d3-7102-407c-8fd3-257bb3a8c055.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FPrgRUxNz?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/78a5d6d3-7102-407c-8fd3-257bb3a8c055.m3u8?max_resolution=360p"
         }
       },
@@ -75,10 +75,10 @@
     "E7": {
       "Episode": "S1 E7",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/b737b5f2-ffe2-44e4-9854-5ff5b4616af2.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/dha28W5w",
         "Quality": {
           "Auto": "https://stream.fastpix.io/b737b5f2-ffe2-44e4-9854-5ff5b4616af2.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/b737b5f2-ffe2-44e4-9854-5ff5b4616af2.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2Fdha28W5w?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/b737b5f2-ffe2-44e4-9854-5ff5b4616af2.m3u8?max_resolution=360p"
         }
       },
@@ -87,10 +87,10 @@
     "E8": {
       "Episode": "S1 E8",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/7e025424-9ed6-418a-a692-07e2aed913ec.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/AAzCuQsX",
         "Quality": {
           "Auto": "https://stream.fastpix.io/7e025424-9ed6-418a-a692-07e2aed913ec.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/7e025424-9ed6-418a-a692-07e2aed913ec.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FAAzCuQsX?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/7e025424-9ed6-418a-a692-07e2aed913ec.m3u8?max_resolution=360p"
         }
       },
@@ -99,10 +99,10 @@
     "E9": {
       "Episode": "S1 E9",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/0b506850-1f89-470a-81f2-0db2475b1d8f.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/ZZWonjjS",
         "Quality": {
           "Auto": "https://stream.fastpix.io/0b506850-1f89-470a-81f2-0db2475b1d8f.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/0b506850-1f89-470a-81f2-0db2475b1d8f.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FZZWonjjS?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/0b506850-1f89-470a-81f2-0db2475b1d8f.m3u8?max_resolution=360p"
         }
       },
@@ -111,10 +111,10 @@
     "E10": {
       "Episode": "S1 E10",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/51df643f-c01d-4389-b5cf-7cbae231e7bd.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/vdmS9C7s",
         "Quality": {
           "Auto": "https://stream.fastpix.io/51df643f-c01d-4389-b5cf-7cbae231e7bd.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/51df643f-c01d-4389-b5cf-7cbae231e7bd.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FvdmS9C7s?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/51df643f-c01d-4389-b5cf-7cbae231e7bd.m3u8?max_resolution=360p"
         }
       },
@@ -123,10 +123,10 @@
     "E11": {
       "Episode": "S1 E11",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/ced4ba70-f33b-42a0-8814-9804460d570d.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/1rqXnDKT",
         "Quality": {
           "Auto": "https://stream.fastpix.io/ced4ba70-f33b-42a0-8814-9804460d570d.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/ced4ba70-f33b-42a0-8814-9804460d570d.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2F1rqXnDKT?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/ced4ba70-f33b-42a0-8814-9804460d570d.m3u8?max_resolution=360p"
         }
       },
@@ -135,10 +135,10 @@
     "E12": {
       "Episode": "S1 E12",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/bf036763-9050-4bcd-862d-c30c8d96965f.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/2qV6poTb",
         "Quality": {
           "Auto": "https://stream.fastpix.io/bf036763-9050-4bcd-862d-c30c8d96965f.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/bf036763-9050-4bcd-862d-c30c8d96965f.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2F2qV6poTb?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/bf036763-9050-4bcd-862d-c30c8d96965f.m3u8?max_resolution=360p"
         }
       },
@@ -149,10 +149,10 @@
     "E1": {
       "Episode": "S2 E1",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/ce76327c-23bb-47ba-8441-6db68f0142f5.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/qXJ8Q7tq",
         "Quality": {
           "Auto": "https://stream.fastpix.io/ce76327c-23bb-47ba-8441-6db68f0142f5.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/ce76327c-23bb-47ba-8441-6db68f0142f5.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FqXJ8Q7tq?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/ce76327c-23bb-47ba-8441-6db68f0142f5.m3u8?max_resolution=360p"
         }
       },
@@ -161,10 +161,10 @@
     "E2": {
       "Episode": "S2 E2",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/5b59f96a-015f-4abe-b658-c8dc0f15372e.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/1a7oMNPX",
         "Quality": {
           "Auto": "https://stream.fastpix.io/5b59f96a-015f-4abe-b658-c8dc0f15372e.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/5b59f96a-015f-4abe-b658-c8dc0f15372e.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2F1a7oMNPX?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/5b59f96a-015f-4abe-b658-c8dc0f15372e.m3u8?max_resolution=360p"
         }
       },
@@ -173,10 +173,10 @@
     "E3": {
       "Episode": "S2 E3",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/8e0e48a3-29ce-47ad-9aa7-20b4de3ab634.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/NQdtiCQg",
         "Quality": {
           "Auto": "https://stream.fastpix.io/8e0e48a3-29ce-47ad-9aa7-20b4de3ab634.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/8e0e48a3-29ce-47ad-9aa7-20b4de3ab634.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FNQdtiCQg?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/8e0e48a3-29ce-47ad-9aa7-20b4de3ab634.m3u8?max_resolution=360p"
         }
       },
@@ -185,10 +185,10 @@
     "E4": {
       "Episode": "S2 E4",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/f18cee0c-3d8b-4f6d-9a99-e478a51861db.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/D8R2ssKQ",
         "Quality": {
           "Auto": "https://stream.fastpix.io/f18cee0c-3d8b-4f6d-9a99-e478a51861db.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/f18cee0c-3d8b-4f6d-9a99-e478a51861db.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FD8R2ssKQ?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/f18cee0c-3d8b-4f6d-9a99-e478a51861db.m3u8?max_resolution=360p"
         }
       },
@@ -197,10 +197,10 @@
     "E5": {
       "Episode": "S2 E5",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/20faf165-361e-4906-9f9d-88d66444d5a9.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/qrdSXFmT",
         "Quality": {
           "Auto": "https://stream.fastpix.io/20faf165-361e-4906-9f9d-88d66444d5a9.m3u8",
-          "Up to 720p": "https://stream.fastpix.io/20faf165-361e-4906-9f9d-88d66444d5a9.m3u8?min_resolution=720p",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FqrdSXFmT?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/20faf165-361e-4906-9f9d-88d66444d5a9.m3u8?max_resolution=360p"
         }
       },
@@ -209,9 +209,78 @@
     "E6": {
       "Episode": "S2 E6",
       "NXT Play": {
-        "Original": "https://stream.fastpix.io/7ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8",
+        "Original": "https://pixeldrain.dev/api/file/on8Bb7R1",
         "Quality": {
           "Auto": "https://stream.fastpix.io/7ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2Fon8Bb7R1?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/7ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/18bsuMt7VR/" }
+    },
+    "E7": {
+      "Episode": "S2 E7",
+      "NXT Play": {
+        "Original": "https://pixeldrain.dev/api/file/frVzJ6w3",
+        "Quality": {
+          "Auto": "https://stream.fastpix.io/c74bedff-ee17-4fa4-bbf3-5a29b6b31a8c.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FfrVzJ6w3?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/c74bedff-ee17-4fa4-bbf3-5a29b6b31a8c.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1DkZTjEujM/" }
+    },
+    "E8": {
+      "Episode": "S2 E8",
+      "NXT Play": {
+        "Original": "https://pixeldrain.dev/api/file/SpkwggwS",
+        "Quality": {
+          "Auto": "https://stream.fastpix.io/99ad7245-22c6-4001-8fc5-ac6b36eb6290.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FSpkwggwS?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/99ad7245-22c6-4001-8fc5-ac6b36eb6290.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "Unavailable" }
+    },
+    "E9": {
+      "Episode": "S2 E9",
+      "NXT Play": {
+        "Original": "https://pixeldrain.dev/api/file/YmqeTQb1",
+        "Quality": {
+          "Auto": "https://stream.fastpix.io/ab54a607-0d5c-47b8-8092-98d3a641d917.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FYmqeTQb1?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/ab54a607-0d5c-47b8-8092-98d3a641d917.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "Unavailable" }
+    },
+    "E10": {
+      "Episode": "S2 E10",
+      "NXT Play": {
+        "Original": "https://pixeldrain.dev/api/file/evLdnVpM",
+        "Quality": {
+          "Auto": "https://stream.fastpix.io/66e44849-1e66-4eaa-8632-e99f4f6599c9.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FevLdnVpM?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/66e44849-1e66-4eaa-8632-e99f4f6599c9.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/1GYH73LS89/" }
+    },
+    "E11": {
+      "Episode": "S2 E11",
+      "NXT Play": {
+        "Original": "https://pixeldrain.dev/api/file/qKHCh24k",
+        "Quality": {
+          "Auto": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128.m3u8",
+          "Up to 720p": "https%3A%2F%2Fpixeldrain.dev%2Fapi%2Ffile%2FqKHCh24k?min_resolution=720p",
+          "Data Saver": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128.m3u8?max_resolution=360p"
+        }
+      },
+      "Facebook": { "Original": "https://www.facebook.com/share/v/17Ss6z7jmz/" }
+    }
+  }
+}
+ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8",
           "Up to 720p": "https://stream.fastpix.io/7ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8?min_resolution=720p",
           "Data Saver": "https://stream.fastpix.io/7ce93afb-bebf-4c5a-a915-92aaa7ba1204.m3u8?max_resolution=360p"
         }
