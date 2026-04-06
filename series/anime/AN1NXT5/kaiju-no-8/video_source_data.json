@@ -271,9 +271,9 @@
       "NXT Play": {
         "Original": "https://pixeldrain.dev/api/file/qKHCh24k",
         "Quality": {
-          "Auto": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128",
+          "Auto": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128.m3u8",
           "Up to 720p": "https://cdn45.pixeldrain.eu.cc/api/file/qKHCh24k",
-          "Data Saver": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128?max_resolution=360p"
+          "Data Saver": "https://stream.fastpix.io/ed69017d-e42b-4ee4-8dbc-33d8e2eba128.m3u8?max_resolution=360p"
         }
       },
       "Facebook": { "Original": "https://www.facebook.com/share/v/17Ss6z7jmz/" }
