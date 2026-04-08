@@ -306,6 +306,7 @@ const VID_URL = "./video_source_data.json";
         videoData = cleanJSON(textVideo);
 
         renderUI(globalData, metaData);
+await document.fonts.ready;
         document.getElementById('AVR').style.display = 'none';
       } catch (err) {
         console.error("Initialization Error:", err);
