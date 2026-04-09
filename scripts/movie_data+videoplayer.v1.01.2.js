@@ -279,8 +279,8 @@ document.addEventListener('webkitfullscreenchange', updateFullscreenIcon);
 
 
 
-const DATA_URL = "https://nxt-play.github.io/web/movie/ZH7B28B7AN/dhurandhar/data_EX_main.json";
-const VID_URL = "https://nxt-play.github.io/web/movie/ZH7B28B7AN/dhurandhar/video_source_data.json";
+const DATA_URL = "./data_EX_main.json";
+const VID_URL = "./video_source_data.json";
 
 
     let globalData = null;
